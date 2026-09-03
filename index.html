@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember & Oak | Specialty Coffee & Roastery</title>
+  <meta name="description" content="A warm, moody, scroll-driven 3D experience for Ember & Oak specialty coffee roasters. Slow mornings, deliberate coffee.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+  <!-- Film Grain Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Interactive Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <aside id="preloader" class="preloader" aria-label="Loading Experience">
+    <div class="preloader-content">
+      <div class="preloader-mark">
+        <svg class="coffee-drop-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 4 C20 4 8 20 8 27 C8 33.6 13.4 39 20 39 C26.6 39 32 33.6 32 27 C32 20 20 4 20 4 Z" stroke="#c59b27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="20" cy="27" r="4" fill="#d36135" class="drop-pulse"/>
+        </svg>
+        <span class="preloader-title">EMBER & OAK</span>
+      </div>
+      <p class="preloader-tagline">Tempering beans. Heating copper. Crafting stillness.</p>
+      <div class="preloader-bar-wrapper">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+      <span class="preloader-counter" id="preloader-counter">0%</span>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="site-header" id="site-header">
+    <a href="#hero" class="brand-logo" aria-label="Ember & Oak Home">
+      <span class="brand-monogram">E&amp;O</span>
+      <span class="brand-text">EMBER &amp; OAK</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="#hero" class="nav-link active" data-nav="hero">The Pour</a>
+      <a href="#bean" class="nav-link" data-nav="bean">The Bean</a>
+      <a href="#space" class="nav-link" data-nav="space">The Space</a>
+      <a href="#menu" class="nav-link" data-nav="menu">The Menu</a>
+      <a href="#visit" class="nav-link" data-nav="visit">Visit Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#menu" class="btn btn-sm btn-outline">Explore Menu</a>
+      <a href="#visit" class="btn btn-sm btn-primary">Find Cafe</a>
+    </div>
+  </header>
+
+  <!-- 3D WebGL Canvas Layer -->
+  <div id="canvas-container" class="canvas-container" aria-hidden="true">
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+
+  <!-- Ambient Light Time of Day Indicator -->
+  <div class="time-indicator" id="time-indicator" aria-hidden="true">
+    <span class="time-icon">☼</span>
+    <span class="time-label" id="time-label">07:30 AM — Dawn Brew</span>
+  </div>
+
+  <!-- Main Scrollable Scrollytelling Sections -->
+  <main id="scroll-container" class="scroll-container">
+    
+    <!-- SECTION 1: THE POUR (HERO) -->
+    <section id="hero" class="scene-section hero-section" aria-label="Hero - The Pour">
+      <div class="section-content hero-content">
+        <div class="hero-badge">Est. 2021 &bull; Artisanal Small-Batch Roastery</div>
+        <h1 class="hero-title">
+          <span class="title-line title-serif">Ember &amp; Oak</span>
+        </h1>
+        <p class="hero-tagline">Slow mornings, deliberate coffee.</p>
+        <p class="hero-description">
+          We extract patience into porcelain. Micro-lot varietals roasted gently over cured oak embers, tuned for quiet reverence.
+        </p>
+        <div class="hero-actions">
+          <a href="#bean" class="btn btn-primary">Discover the Roast</a>
+          <a href="#space" class="btn btn-glass">Tour The Roastery</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-label="Scroll down to continue">
+        <span class="scroll-text">SCROLL TO IMMERSE</span>
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE BEAN -->
+    <section id="bean" class="scene-section bean-section" aria-label="The Bean - Product Reveal">
+      <div class="section-content story-card-wrapper">
+        <div class="glass-card story-card">
+          <span class="card-eyebrow">Direct Trade Harvest &bull; Batch #042</span>
+          <h2 class="card-title">The Terroir of Huila</h2>
+          <p class="card-lead">
+            Grown under canopy shade in volcanic soils at 1,920 MASL. Hand-picked at peak ripeness, naturally fermented for 48 hours in oak barrels.
+          </p>
+          
+          <div class="tasting-notes">
+            <span class="note-pill">Cacao Nibs</span>
+            <span class="note-pill">Blood Orange</span>
+            <span class="note-pill">Smoked Vanilla</span>
+            <span class="note-pill">Roasted Walnut</span>
+          </div>
+
+          <!-- Animated Roast Level Indicator -->
+          <div class="roast-meter-module" id="roast-meter" aria-label="Roast Profile">
+            <div class="roast-header">
+              <span class="roast-title">ROAST PROFILE</span>
+              <span class="roast-current" id="roast-label">Medium-City (Craft Roast)</span>
+            </div>
+            <div class="roast-track">
+              <div class="roast-segment" data-level="light">
+                <span class="segment-dot"></span>
+                <span class="segment-name">Light</span>
+              </div>
+              <div class="roast-segment active" data-level="medium">
+                <span class="segment-dot"></span>
+                <span class="segment-name">Medium</span>
+              </div>
+              <div class="roast-segment" data-level="dark">
+                <span class="segment-dot"></span>
+                <span class="segment-name">Dark</span>
+              </div>
+              <div class="roast-fill-bar" id="roast-fill-bar"></div>
+            </div>
+            <p class="roast-note">
+              Roasted slowly over seasoned white oak to caramelize bean sugars while preserving vibrant citric acidity.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="spec-col">
+              <span class="spec-label">VARIETAL</span>
+              <span class="spec-val">Pink Bourbon</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-label">PROCESS</span>
+              <span class="spec-val">Oak Anaerobic</span>
+            </div>
+            <div class="spec-col">
+              <span class="spec-label">ELEVATION</span>
+              <span class="spec-val">1,920m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE SPACE -->
+    <section id="space" class="scene-section space-section" aria-label="The Space - Interior Walkthrough">
+      <div class="section-content space-content-layout">
+        <div class="glass-card space-card space-card-left">
+          <span class="card-eyebrow">Atmosphere &amp; Acoustics</span>
+          <h2 class="card-title">An Interior Designed for Stillness</h2>
+          <p>
+            Warm fluted walnut, cast bronze hardware, and linen-softened acoustics. Every angle is conceived to slow your heartbeat and cradle conversation.
+          </p>
+          <div class="detail-bullets">
+            <div class="bullet-item">
+              <span class="bullet-dot"></span>
+              <span>Custom custom-milled white oak counters</span>
+            </div>
+            <div class="bullet-item">
+              <span class="bullet-dot"></span>
+              <span>Hand-blown amber glass pendant fixtures</span>
+            </div>
+            <div class="bullet-item">
+              <span class="bullet-dot"></span>
+              <span>Continuous morning-to-dusk solar alignment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-caption-badge">
+          <span class="badge-title">LIGHT HARVEST</span>
+          <span class="badge-desc">Watch the space transition from 7:00 AM dawn to 4:00 PM amber warmth as you glide through.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THE MENU -->
+    <section id="menu" class="scene-section menu-section" aria-label="The Menu">
+      <div class="section-content menu-container">
+        <div class="menu-header">
+          <span class="card-eyebrow">Curated Offerings</span>
+          <h2 class="section-heading">The Daily Parchment</h2>
+          <p class="section-sub">Seasonal extractions, single-origin hand brews, and morning provisions.</p>
+          
+          <!-- Category Filters -->
+          <div class="menu-tabs" role="tablist" aria-label="Menu Categories">
+            <button class="menu-tab active" role="tab" aria-selected="true" data-category="espresso">Espresso</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="pourover">Pour Over</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="seasonal">Seasonal</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="pastries">Provisions</button>
+          </div>
+        </div>
+
+        <!-- Menu Grid Container -->
+        <div class="menu-grid" id="menu-grid" role="tabpanel">
+          <!-- Dynamic or Static Items populated by JS / accessible HTML -->
+        </div>
+
+        <div class="menu-note">
+          <span>* All dairy sourced from Grass-fed Pasture Creamery. House oat milk prepared fresh each morning.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: VISIT US -->
+    <section id="visit" class="scene-section visit-section" aria-label="Visit Us - Location & Hours">
+      <div class="section-content visit-layout">
+        <div class="glass-card visit-card">
+          <span class="card-eyebrow">Our Sanctuary</span>
+          <h2 class="card-title">Visit the Hearth</h2>
+          <p class="visit-lead">
+            Tucked beneath evergreen canopy, our timber storefront is your sanctuary for unhurried coffee.
+          </p>
+
+          <div class="info-blocks">
+            <div class="info-block">
+              <h3 class="info-title">Location</h3>
+              <address class="info-text">
+                742 Timberline Way<br>
+                Cascade Foothills, OR 97004
+              </address>
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-link">Open in Maps &rarr;</a>
+            </div>
+
+            <div class="info-block">
+              <h3 class="info-title">Hours</h3>
+              <p class="info-text">
+                Monday – Friday: 06:30 – 17:00<br>
+                Saturday – Sunday: 07:30 – 18:00
+              </p>
+              <span class="status-pill open-now">Open Today &bull; Barista on duty</span>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <span class="social-label">Follow the ritual:</span>
+            <a href="#visit" class="social-tag">@emberandoakcoffee</a>
+          </div>
+        </div>
+
+        <!-- Newsletter & Contact Module -->
+        <div class="glass-card dispatch-card">
+          <span class="card-eyebrow">The Morning Dispatch</span>
+          <h2 class="card-title">Roasted In Small Batches</h2>
+          <p>
+            Receive notice of weekly single-origin micro-lot releases, private cupping invitations, and home brew guides. Never spam.
+          </p>
+
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <div class="form-group">
+              <label for="newsletter-email" class="sr-only">Your Email Address</label>
+              <input 
+                type="email" 
+                id="newsletter-email" 
+                name="email" 
+                placeholder="Enter your email address..." 
+                required 
+                autocomplete="email"
+                class="form-input"
+              >
+              <button type="submit" class="btn btn-primary btn-submit" id="btn-submit">
+                <span class="btn-text">Join Dispatch</span>
+                <svg class="submit-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+            </div>
+            <div class="form-feedback" id="form-feedback" aria-live="polite"></div>
+          </form>
+
+          <div class="cupping-perk">
+            <span class="perk-icon">✦</span>
+            <span class="perk-text">Subscribers receive first access to Reserve Geisha releases &amp; complimentary tasting pours.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Site Footer -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <span class="footer-copy">&copy; 2026 Ember &amp; Oak Coffee Roasters. Handcrafted with reverence.</span>
+          <div class="footer-links">
+            <a href="#hero">Back to Top &uarr;</a>
+            <a href="#menu">Menu</a>
+            <a href="#visit">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
