@@ -1,55 +1,54 @@
-# Ember & Oak — 3D Specialty Coffee Experience
+# Ember & Oak — Specialty Coffee & Roastery
 
-A warm, moody, scroll-driven 3D web experience for **Ember & Oak**, an artisanal specialty coffee roastery and cafe. Built with **Three.js**, **GSAP ScrollTrigger**, and **Lenis** smooth scrolling.
+A responsive, single-page 3D interactive web experience for the fictional artisanal coffee shop **"Ember & Oak"**. Engineered with **Three.js**, **GSAP ScrollTrigger**, and **Lenis** smooth scrolling.
 
 ---
 
-## ✨ Features
+## ☕ Features
 
-- **Continuous 3D Flight**: Smooth camera trajectory driven by scroll position across 5 distinct zones:
-  1. **The Pour (Hero)**: Procedural ceramic latte cup with custom GLSL liquid crema swirl & wave ripples, paired with a rising volumetric steam particle system.
-  2. **The Bean (Product Reveal)**: Artisanal coffee pouch with dynamic canvas label and 75 realistic 3D roasted coffee beans (`THREE.InstancedMesh`) with signature creases, alongside an interactive roast level indicator.
-  3. **The Space (Cafe Walkthrough)**: Architectural minimalist interior with fluted walnut bar counter, espresso machine silhouette, brass pendant lamps, floating dust motes, and a dynamic morning-to-afternoon daylight cycle (`07:30 AM` to `04:30 PM`).
-  4. **The Menu**: Editorial 2D interactive menu overlay with category tabs (Espresso, Pour Over, Seasonal, Provisions) and micro-interactions.
-  5. **Visit Us (Storefront)**: Exterior timber facade with glowing arched window, illuminated signage, bistro table, and interactive newsletter signup.
-- **Dynamic Solar Lighting**: Directional and ambient light rig shifts color and angle according to scroll progress.
-- **Smooth Momentum Scrolling**: Integrated Lenis virtual scroll synchronized with GSAP ScrollTrigger.
-- **Pure Procedural 3D Geometry**: High-performance PBR materials with zero external 3D model asset overhead.
-- **Atmospheric Polish**: Subtle SVG film grain overlay, magnetic custom cursor, and responsive mobile FOV adjustments.
+- **Continuous 3D Camera Flight**: A single, seamless 3D camera trajectory driven by scroll scrub through 5 thematic zones:
+  1. **The Pour (Hero)**: Handcrafted 3D ceramic latte cup with custom GLSL liquid crema shaders and rising steam particle system with curl noise.
+  2. **The Bean (Product Reveal)**: Artisanal craft coffee bag with dynamic canvas-generated typography, surrounded by realistic 3D roasted coffee beans (`THREE.InstancedMesh`) with center clefts.
+  3. **The Space (Interior Walkthrough)**: Minimalist Scandinavian/Japanese-inspired cafe interior with fluted walnut bar counters, commercial espresso machine silhouette, grinder, pendant lamps, and floating dust motes.
+  4. **The Menu**: Seamless transition into an editorial 2D menu overlay with interactive category tabs, tasting notes, and price tags.
+  5. **Visit Us (Storefront & Dispatch)**: Settles on a charred timber facade with illuminated signage and arched window glow, store hours, address, and interactive newsletter signup.
+- **Dynamic Daylight Progression**: Directional sun light interpolates from morning dawn amber (`07:30 AM`) to warm golden hour ember (`04:30 PM`) with shifting sun angles.
+- **Interactive Roast Profile Meter**: Interactive Light / Medium / Dark gauge with animated fill bar and roast tasting notes.
+- **Editorial Design Language**: Deep obsidian and warm cured oak palette, film grain texture overlay, magnetic dual-ring custom cursor, and responsive mobile FOV adjustments.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Three.js** (`^0.162.0`) — 3D scene, materials, lighting, and custom GLSL shaders
-- **GSAP & ScrollTrigger** (`^3.12.5`) — Scroll-synced camera animation and UI choreography
-- **Lenis** (`^1.1.18`) — Smooth momentum scroll
-- **Vite** (`^5.2.0`) — Build tool and dev server
+- **3D Engine**: [Three.js](https://threejs.org/) (PBR materials, custom GLSL shaders, instanced geometry)
+- **Animation & Scrollytelling**: [GSAP](https://gsap.com/) & [ScrollTrigger](https://gsap.com/scrolltrigger/)
+- **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-Ensure [Node.js](https://nodejs.org/) (v18+) is installed.
+- Node.js (v18+)
+- npm or yarn
 
 ### Installation
-
 ```bash
+# Clone the repository
+git clone https://github.com/ultimateboy809/ember-and-oak.git
+
+# Navigate into project directory
+cd ember-and-oak
+
+# Install dependencies
 npm install
-```
 
-### Development
-
-```bash
+# Start local dev server
 npm run dev
 ```
 
-Open [http://localhost:5173/](http://localhost:5173/) in your browser.
-
 ### Production Build
-
 ```bash
 npm run build
 npm run preview
@@ -57,6 +56,5 @@ npm run preview
 
 ---
 
-## 📄 License
-
-MIT © Ember & Oak Coffee Roasters
+## 📜 License
+MIT License. Handcrafted with reverence.
